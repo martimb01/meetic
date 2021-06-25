@@ -1,4 +1,4 @@
-package com.meetic.pt.Meetic;
+package com.meetic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
