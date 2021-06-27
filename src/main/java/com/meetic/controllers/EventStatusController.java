@@ -26,8 +26,8 @@ public class EventStatusController {
 
     @GetMapping(path="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EventStatus> getEventStatus (@PathVariable int id) {
-        logger.info("Plans of unit with id "+ id);
-        return EventStatusRepository.findEventStatusById(id);
+        logger.info("status with id "+ id);
+        return EventStatusRepository.findStatusById(id);
     }
 
 

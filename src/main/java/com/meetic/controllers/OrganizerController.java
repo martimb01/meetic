@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(path="/api/organizer")
+@RequestMapping(path="/api/organizers")
 public class OrganizerController {
     private Logger logger = LoggerFactory.getLogger(OrganizerController.class);
     @Autowired
@@ -19,7 +19,7 @@ public class OrganizerController {
 
     @GetMapping(path = "", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Organizer> getOrganizer() {
-        logger.info("Sending all organizer");
+        logger.info("Sending all organizers");
         return organizerRepository.findAll();
     }
 

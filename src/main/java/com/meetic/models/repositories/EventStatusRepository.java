@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 public interface EventStatusRepository extends CrudRepository<EventStatus, Integer> {
 
 
-    Iterable<EventStatus> findEventStatusById(@Param ("id") int id);
+    Iterable<EventStatus> findStatusById(@Param ("id") int id);
 
 }
 
