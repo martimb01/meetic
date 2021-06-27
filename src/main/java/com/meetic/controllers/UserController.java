@@ -1,6 +1,8 @@
 package com.meetic.controllers;
 import com.meetic.models.User;
 import com.meetic.models.repositories.UserRepository;
+import com.meetic.models.views.UsersEventosView;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,13 @@ public class UserController {
         logger.info("Sending all users");
         return userRepository.findAll();
     }
+
+    @GetMapping(path = "/inscricoes/", produces= MediaType.APPLICATION_JSON_VALUE )
+    public Iterable<UsersEventosView> getInscricoes() {
+      logger.info("Sending all plans of units");
+      return userRepository.findAllInscricoes();
+    }
+
+
 
 }
