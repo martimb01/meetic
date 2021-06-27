@@ -2,6 +2,8 @@ package com.meetic.controllers;
 import com.meetic.models.Event;
 import com.meetic.models.repositories.EventRepository;
 import com.meetic.models.views.EventTypeView;
+import com.meetic.models.views.EventView;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,12 @@ public class EventController {
     public Iterable<EventTypeView> getEventType(@PathVariable int id) {
         logger.info("Sending one type of event" + id);
         return eventRepository.findEventTypeById(id);
+    }
+
+    @GetMapping(path="{statusId}/status", produces= MediaType.APPLICATION_JSON_VALUE )
+    public Iterable<EventView> getUnitPlan (@PathVariable int statusId) {
+      logger.info("Sending events with status "+ statusId);
+      return eventRepository.findEventByStatus(statusId);
     }
 
 }
