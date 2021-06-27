@@ -21,7 +21,9 @@ public class Event {
     private String name;
     @Column(name="ev_Description")
     private String description;
- 
+    @Column(name="ev_EvType_Id")
+    private int categoryID;
+
     public Event() {}
 
     public int getId() {
@@ -35,6 +37,9 @@ public class Event {
     }
     public String getDescription() {
         return description;
+    }
+    public int getCategoryID() {
+        return categoryID;
     }
 
 }
