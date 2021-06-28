@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "action.js"></script>
+    <style>
+        table {
+            margin-top: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2;}
+
+    tr:hover {background-color: #ddd;}
+
+    th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #599bb3;
+    color: white;
+    }
+
+    .btn {
+    box-shadow: 0px 10px 14px -7px #276873;
+    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color:#599bb3;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    }
+    .btn:hover {
+    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    background-color:#408c99;
+    }
+    .btn:active {
+    position:relative;
+    top:1px;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "users" class="btn" onclick= 'action(this.id, "")' >Users</button>
+    <button id = "auditors" class="btn" onclick= 'action(this.id,"")'>Auditors</button>
+    <button id = "organizers" class="btn" onclick= 'action(this.id,"")'>Organizers</button>
+    <button id = "gifts" class="btn" onclick= "document.location.href = 'gifts.html'")'>Gifts</button>
+    <button id = "events" class="btn" onclick = "document.location.href = 'EventTypes.html'">Events</button>
+    <table></table>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "action.js"></script>
+    <script>
+        window.onload = function (){
+            action("gifts", "");
+        }
+    </script>
+    <script>
+        async function searchById(id) {
+        try {
+        let usId = document.getElementById(id).value;
+        let res = await $.ajax({
+        url: "/api/gifts/"+ usId + "/user",
+        method: "get",
+        dataType: "json"
+        });
+
+        if (res.length === 0){
+            console.log("lista vazia");
+            while(document.querySelector("td")){
+                document.querySelector("td").remove();
+            }
+            return;
+        }
+        let table = document.querySelector("table");
+        let res2 = Object.keys(res[0]);
+
+        while(document.querySelector("tr")){
+            document.querySelector("tr").remove();
+        }
+        while(document.querySelector("th")){
+            document.querySelector("th").remove();
+        }
+        while(document.querySelector("td")){
+            document.querySelector("td").remove();
+        }
+        table = document.querySelector("table");
+        generateTableHead(table, res2);
+        generateTable(table, res);    
+    } catch (error) { console.log(error); }
+    }
+    </script>
+   <style>
+        table {
+            margin-top: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2;}
+
+    tr:hover {background-color: #ddd;}
+
+    th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #599bb3;
+    color: white;
+    }
+
+    .btn {
+    box-shadow: 0px 10px 14px -7px #276873;
+    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color:#599bb3;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    }
+    .btn:hover {
+    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    background-color:#408c99;
+    }
+    .btn:active {
+    position:relative;
+    top:1px;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "Main" class="btn" onclick = "document.location.href = 'index.html'">Main</button>
+    <h1 id="message"></h1>
+    <p><label for="status">Shearch by ID you have redeemed gifts: </label>
+    <input type=text id=redeem></p>
+    <input type=button value="Submit" onclick="searchById('redeem')">
+    <table></table>
+
+</body>
+</html>
